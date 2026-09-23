@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro - Multiventas Rafa</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="w-full h-full bg-gray-100">
+
+
+    <!--  CONTENIDO  -->
+    <main class="min-h-[calc(100vh-100px)]
+            flex flex-col lg:flex-row">
+
+
+        <!--  PANEL IZQUIERDO  -->
+        <section class=" hidden md:flex w-full lg:w-[50%]
+                min-h-[800px] 
+                lg:min-h-[calc(100vh-0px)]
+                bg-[#397d74]
+                flex flex-col
+                items-center
+                justify-center
+                px-8
+                text-white">
+
+            <!-- IMAGEN -->
+            <div class="mb-7">
+
+                <img src="../img/logo.png" alt="logo" class="w-[380px] md:w-[410px]
+                        mx-auto
+                        justify-center
+                        object-contain mb-5">
+
+
+            </div>
+
+
+            <!-- TEXTO -->
+            <p class="text-center
+                    text-lg
+                    md:text-4xl
+                    font-semibold
+                    max-w-[500px]
+                    leading-relaxed">
+
+
+                Tu mejor aliado en útiles escolares,
+                aseo y desechables.
+
+            </p>
+
+
+            <!-- REDES -->
+            <div class="flex gap-6 mt-8">
+
+                <!-- FACEBOOK -->
+                <a href="#" class="w-10 h-10
+                        rounded-full
+                        bg-black
+                        flex items-center
+                        justify-center
+                        hover:scale-110
+                        transition">
+
+                    <i class="fa-brands fa-facebook-f
+                            text-[#00b7e8]">
+                    </i>
+
+                </a>
+
+
+                <!-- INSTAGRAM -->
+                <a href="#" class="w-10 h-10
+                        rounded-full
+                        bg-black
+                        flex items-center
+                        justify-center
+                        hover:scale-110
+                        transition">
+
+                    <i class="fa-brands fa-instagram
+                            text-[#00b7e8]">
+                    </i>
+
+                </a>
+
+
+                <!-- WEB -->
+                <a href="#" class="w-10 h-10
+                        rounded-full
+                        bg-black
+                        flex items-center
+                        justify-center
+                        hover:scale-110
+                        transition">
+
+                    <i class="fa-solid fa-globe
+                            text-[#00b7e8]">
+                    </i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!--  PANEL DERECHO  -->
+        <section class="relative 
+                w-full lg:w-[50%]
+                min-h-[800px]
+                overflow-hidden
+                bg-gradient-to-br
+                from-[#3c5359]
+                via-[#668187]
+                to-[#a5babd]
+                flex items-center
+                justify-center">
+
+
+            <!-- FIGURAS DECORATIVAS -->
+
+            <div class="absolute
+                    top-0 left-[25%]
+                    w-[8px] h-[210px]
+                    bg-[#397a6c]
+                    rounded-full
+                    rotate-[7deg]">
+            </div>
+
+
+            <div class="absolute
+                    top-[12%] right-[9%]
+                    w-[100px] h-[8px]
+                    bg-[#65bea9]
+                    rounded-full
+                    rotate-[7deg]">
+            </div>
+
+
+            <div class="absolute
+                    top-[14%] right-[9%]
+                    w-[8px] h-[180px]
+                    bg-[#65bea9]
+                    rotate-[-28deg]">
+            </div>
+
+
+            <div class="absolute
+                    top-[27%] right-[14%]
+                    w-[8px] h-[150px]
+                    bg-[#65bea9]
+                    rotate-[-38deg]">
+            </div>
+
+
+            <div class="absolute
+                    bottom-[24%] left-[12%]
+                    w-[100px] h-[8px]
+                    bg-[#65bea9]
+                    rounded-full
+                    rotate-[5deg]">
+            </div>
+
+
+            <div class="absolute
+                    bottom-0 left-[22%]
+                    w-[8px] h-[150px]
+                    bg-[#39786c]
+                    rotate-[-2deg]">
+            </div>
+
+
+            <div class="absolute
+                    bottom-[10%] right-[8%]
+                    w-[130px] h-[8px]
+                    bg-[#65bea9]
+                    rounded-full
+                    rotate-[8deg]">
+            </div>
+
+
+
+            <!--  FORMULARIO  -->
+            <div class="relative z-10
+                    w-[90%] max-w-[400px]
+                    bg-white
+                    rounded-2xl
+                    shadow-2xl
+                    px-5 py-6 gap-4
+                    flex flex-col">
+
+
+                <!-- TITULO -->
+                <h1 class="text-center
+                        text-[#34484d]
+                        text-4xl
+                        font-bold
+                        mb-5">
+
+                    Nuevo Usuario
+
+                </h1>
+
+
+                <form class="space-y-3">
+
+
+                    <!-- CORREO -->
+                    <div>
+
+                        <label class="block
+                                text-gray-700
+                                mb-1">
+
+                            Correo Electrónico
+
+                        </label>
+
+                        <input type="email" placeholder="ejemplo@correo.com" required class="w-full
+                                h-9
+                                border
+                                border-[#54b3a5]
+                                rounded-lg
+                                px-3
+                                text-[15px]
+                                outline-none
+                                focus:ring-2
+                                focus:ring-[#54b3a5]">
+
+                    </div>
+
+
+                    <!-- CONFIRMAR CORREO -->
+                    <div>
+
+                        <label class="block
+                                text-gray-700
+                                mb-1">
+
+                            Confirmar Correo
+
+                        </label>
+
+                        <input type="email" placeholder="ejemplo@correo.com" required class="w-full
+                                h-9
+                                border
+                                border-[#54b3a5]
+                                rounded-lg
+                                px-3
+                                text-[15px]
+                                outline-none
+                                focus:ring-2
+                                focus:ring-[#54b3a5] ">
+
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+                    <div>
+
+                        <label class="block
+                                text-gray-700
+                                mb-1">
+
+                            Contraseña
+
+                        </label>
+
+                        <input type="password" placeholder="••••••••" required class="w-full
+                                h-9
+                                border
+                                border-[#54b3a5]
+                                rounded-lg
+                                px-3
+                                text-[15px]
+                                outline-none
+                                focus:ring-2
+                                focus:ring-[#54b3a5]">
+
+                    </div>
+
+
+                    <!-- CONFIRMAR CONTRASEÑA -->
+                    <div>
+
+                        <label class="block
+                                text-gray-700
+                                mb-1">
+
+                            Confirmar Contraseña
+
+                        </label>
+
+                        <input type="password" placeholder="••••••••" required class="w-full
+                                h-9
+                                border
+                                border-[#54b3a5]
+                                rounded-lg
+                                px-3
+                                text-[15px]
+                                outline-none
+                                focus:ring-2
+                                focus:ring-[#54b3a5]">
+
+                    </div>
+
+
+                    <!-- BOTÓN REGISTRAR -->
+                    <a href="/login/index.html">
+                    <button type="submit" class="w-48 mx-auto
+                            h-9
+                            mt-3
+                            rounded-lg
+                            bg-gradient-to-r
+                            from-[#80d0ce]
+                            to-[#344d4e]
+                            text-white
+                            text-2xl
+                            font-bold
+                            hover:scale-[1.02]
+                            transition
+                                flex items-center justify-center">
+
+                        Registrar
+                    </a>
+                    </button>
+
+
+                    <!-- INICIAR SESIÓN -->
+                    <p class="text-center
+                            text-xl
+                            md:text-sm
+                            text-gray-700
+                            pt-1 ">
+
+                        ¿Ya tienes cuenta?
+
+                        <a href="../login/index.html" class=" text-[#3fa38f]
+                                font-semibold
+                                hover:underline">
+                            Inicia Sesión
+                        </a>
+
+                    </p>
+                    <a href="../index.html" class=" text-[#3fa38f]
+                                font-semibold
+                                hover:underline flex items-center justify-center">
+                        volver a inicio
+                    </a>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
