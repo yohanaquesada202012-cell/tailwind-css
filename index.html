@@ -167,6 +167,8 @@
 
             </nav>
 
+ 
+
             <!-- ACCIONES -->
 
             <div class="flex items-center gap-3">
@@ -203,11 +205,48 @@
                         aria-label="Abrir menú"
                         aria-expanded="false"
                         aria-controls="mobileMenu"
-                        class="md:hidden w-11 h-11 rounded-full bg-fondo
-                               flex items-center justify-center">
+                        class="md:hidden w-11 h-11 rounded-full bg-fondo">
 
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
+           
+<nav id="mobileMenu"
+     class=" mobile-menu absolute right-5 top-[76px] w-30
+            flex-col gap-2 rounded-2xl bg-white p-4
+            shadow-xl  md:hidden">
+
+    <a href="#inicio"
+       class="rounded-xs px-4 py-3 font-semibold hover:bg-[#edf7f3] hover:text-principal transition">
+        <i class="fa-solid fa-house mr-3"></i>Inicio
+    </a>
+
+    <a href="#categorias"
+       class="rounded-xs px-4 py-3 font-semibold hover:bg-[#edf7f3] hover:text-principal transition">
+        <i class="fa-solid fa-layer-group mr-3"></i>Categorías
+    </a>
+
+    <a href="#tienda"
+       class="rounded-xs px-4 py-3 font-semibold hover:bg-[#edf7f3] hover:text-principal transition">
+        <i class="fa-solid fa-store mr-3"></i>Tienda
+    </a>
+
+    <a href="#contacto"
+       class="rounded-xs px-4 py-3 font-semibold hover:bg-[#edf7f3] hover:text-principal transition">
+        <i class="fa-solid fa-phone mr-3"></i>Contacto
+    </a>
+
+    <a href="./login/index.html"
+       class="rounded-xs px-4 py-3 font-semibold hover:bg-[#edf7f3] hover:text-principal transition">
+        <i class="fa-regular fa-user mr-3"></i>Ingresar
+    </a>
+
+    <a href="./register/index.html"
+       class="rounded-xs px-4 py-3 font-semibold hover:bg-[#edf7f3] hover:text-principal transition">
+        <i class="fa-solid fa-user-plus mr-3"></i>Crear cuenta
+    </a>
+
+</nav>
+
 
             </div>
 
