@@ -1,345 +1,1342 @@
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Multiventas Rafa</title>
+    <meta name="description"
+          content="Multiventas Rafa: encuentra útiles escolares, productos de aseo, desechables y cacharrería a excelentes precios.">
 
-    <!-- TAILWIND -->
+    <meta name="theme-color" content="#287f70">
+
+    <title>Multiventas Rafa </title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Configuración de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        principal: "#287f70",
+                        secundario: "#83d3c7",
+                        fondo: "#f4f8f7",
+                        oscuro: "#193c3a"
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "Arial", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background: #f4f8f7;
+            color: #193c3a;
+        }
+
+        .hero-background {
+            background:
+                radial-gradient(circle at 10% 20%, #d8f0e9 0, transparent 35%),
+                radial-gradient(circle at 90% 80%, #b4d9d4 0, transparent 35%),
+                linear-gradient(135deg, #f4f8f7, #dcece8);
+        }
+
+        .product-card {
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 35px rgba(25, 60, 58, .12);
+        }
+
+        .product-image {
+            transition: transform .3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.06);
+        }
+
+        .category-button.active {
+            background: #287f70;
+            color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .toast {
+            animation: appear .25s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+   
+    </style>
 </head>
 
-<body class=" bg-[#607d83] text-white">
+<body class="font-sans">
 
-    <!-- HEADER -->
+    <!-- ================= HEADER ================= -->
 
-    <header class="fixed top-0 left-0 w-full h-[70px] bg-[#3fa38f] z-50 shadow-md">
-        <div class="mx-auto h-full px-6 flex items-center justify-between">
-            <!-- LOGO -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
 
-            <a href="" class="flex items-center gap-2">
-                <span class="text-3xl font-bold"> M_F </span>
+        <div class=" duration-3500 transition-slow max-w-7xl mx-auto px-5 lg:px-8 h-[76px] flex items-center justify-between">
 
-                <span class="text-2xl font-semibold"> MULTIVENTAS RAFA </span>
+            <!-- LOGOTIPO -->
+
+            <a href="#inicio"
+               class=" flex items-center gap-3"
+               aria-label="Multiventas Rafa, ir al inicio">
+
+                <div class="w-12 h-12 rounded-2xl bg-principal text-white
+                            flex items-center justify-center shadow-md">
+
+                    <span class="text-xl font-black">
+                        <img src="./img/logo.png" alt="logo">
+                    </span>
+                </div>
             </a>
 
-            <!--  MENU  -->
+            <!-- NAVEGACIÓN ESCRITORIO -->
 
-            <nav class="hidden md:flex items-center gap-12 text-sm">
-                <!-- INICIO -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
 
-                <a href="#inicio" class="hover:text-gray-200 transition text-xl"> Inicio </a>
-
-                <!-- TIENDA -->
-
-                <a href="#tienda" class="hover:text-gray-200 transition text-xl "> Tienda </a>
-
-                <!-- LOGIN -->
-
-                <a href="./login/index.html" class="hover:text-gray-200 transition text-xl">
-                    login
+                <a href="#inicio"
+                   class="hover:text-principal transition">
+                    Inicio
                 </a>
-                <!-- REGISTRO -->
-                <a href="./register/index.html" class="hover:text-gray-200 transition text-xl">
-                    Registro
+
+                <a href="#tienda"
+                   class="hover:text-principal transition">
+                    Tienda
                 </a>
+
+                <a href="#categorias"
+                   class="hover:text-principal transition">
+                    Categorías
+                </a>
+
+                <a href="#contacto"
+                   class="hover:text-principal transition">
+                    Contacto
+                </a>
+
             </nav>
 
+            <!-- ACCIONES -->
 
-            <!-- DERECHA -->
+            <div class="flex items-center gap-3">
 
-            <div class=" md text-2xl gap-5  md:flex">
-                <i class="fa-regular fa-bell cursor-pointer "> </i>
+                <a href="./login/index.html"
+                   class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5
+                          rounded-full border border-principal text-principal
+                          font-bold text-sm hover:bg-principal hover:text-white transition">
 
-                <i class="fa-solid fa-cart-shopping cursor-pointer text-2xl"> </i>
+                    <i class="fa-regular fa-user"></i>
+                    Ingresar
+                </a>
 
-                <button class="md:hidden">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+                <button id="cartButton"
+                        type="button"
+                        aria-label="Abrir carrito de compras"
+                        class="relative w-11 h-11 rounded-full bg-fondo
+                               hover:bg-secundario transition
+                               flex items-center justify-center">
+
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+
+                    <span id="cartCount"
+                          class="absolute -top-1 -right-1 w-5 h-5
+                                 rounded-full bg-principal text-white
+                                 text-xs font-bold flex items-center justify-center">
+                        0
+                    </span>
+
                 </button>
+
+                <button id="menuButton"
+                        type="button"
+                        aria-label="Abrir menú"
+                        aria-expanded="false"
+                        aria-controls="mobileMenu"
+                        class="md:hidden w-11 h-11 rounded-full bg-fondo
+                               flex items-center justify-center">
+
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+
             </div>
+
         </div>
+
     </header>
 
 
-    <section id="inicio"
-        class="min-h-screen pt-[70px] bg-gradient-to-br from-[#dbeceb] via-[#9db7ba] to-[#607d83] flex items-center bs flex-col justify-center gap-10">
+    <main>
+
+        <!-- ================= PORTADA ================= -->
+
+        <section id="inicio"
+                 class="hero-background min-h-[700px] pt-32 pb-20
+                        flex items-center">
+
+            <div class="max-w-7xl mx-auto px-5 lg:px-8 w-full">
+
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                    <!-- TEXTO -->
+
+                    <div class="text-center lg:text-left">
 
 
-        <div class="flex justify-center flex-col items-center gap-10">
-            <div>
-                <img src="./img/logo.png" alt="Útiles escolares" class="w-[580px] md:w-[650px]">
-            </div>
-        </div>
+                        <h2 class="text-4xl sm:text-5xl lg:text-6xl
+                                   font-black leading-tight mt-6 text-oscuro">
 
-        <!-- TEXTO -->
+                            Todo lo que necesitas,
 
-        <div class="text-center lg:text-left">
-            <p class="text-[#3fa38f] font-bold text-4xl">Bienvenido a</p>
+                            <span class="text-principal">
+                                en un solo lugar.
+                            </span>
 
-            <h1 class="text-xl md:text-8xl font-bold text-[#304c50] mt-2">
-                Multiventas
-                <span class="text-[#3fa38f]"> Rafa </span>
-            </h1>
+                        </h2>
 
-            <p class="text-gray-700 mt-6 max-w-[500px] mx-auto lg:mx-0 leading-relaxed text-lg md:text-2xl">
+                        <p class="mt-6 text-gray-600 text-lg leading-relaxed
+                                  max-w-xl mx-auto lg:mx-0">
 
-                Tu mejor aliado en útiles escolares, productos de aseo, desechables
-                y cacharrería.
-            </p>
+                            Descubre nuestra variedad de útiles escolares,
+                            productos de aseo, desechables y cacharrería.
+                            Calidad, variedad y atención cercana para ti.
 
-            <!-- BOTÓN -->
+                        </p>
 
-            <a href="#tienda"
-                class="inline-block mt-8 bg-[#3fa38f] px-8 py-3 rounded-full font-bold hover:bg-[#347e70] transition">
-                Ver tienda
-            </a>
-        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-8
+                                    justify-center lg:justify-start">
 
-        <!-- IMAGEN -->
+                            <a href="#tienda"
+                               class="inline-flex items-center justify-center gap-3
+                                      bg-principal text-white px-8 py-4 rounded-full
+                                      font-bold shadow-lg hover:bg-oscuro transition">
 
-        </div>
-    </section>
+                                Explorar tienda
+                                <i class="fa-solid fa-arrow-right"></i>
 
-    <!-- TIENDA -->
+                            </a>
 
-    <section id="tienda" class="min-h-screen bg-[#607d83] py-20">
-        <div class=" mx-auto px-6">
+                            <a href="#categorias"
+                               class="inline-flex items-center justify-center gap-3
+                                      bg-white text-oscuro px-8 py-4 rounded-full
+                                      font-bold hover:bg-secundario transition">
 
-            <div class="text-center mb-8">
-                <p class="text-[#83d3d0] font-semibold">MULTIVENTAS RAFA</p>
+                                Ver categorías
+                            </a>
 
-                <h2 class="text-4xl font-bold mt-2">Nuestra Tienda</h2>
-            </div>
+                        </div>
 
-            <!-- BUSCADOR -->
+                        <!-- BENEFICIOS -->
 
-            <div class="flex justify-center mb-6">
-                <div class="relative w-full max-w-[600px]">
-                    <input type="search" placeholder="Buscar productos..."
-                        class="w-full h-11 rounded-full bg-white text-gray-700 px-12 outline-none" />
+                        <div class="grid grid-cols-3 gap-4 mt-12
+                                    max-w-lg mx-auto lg:mx-0">
 
-                    <i class="fa-solid fa-magnifying-glass absolute left-5 top-3 text-gray-600">
-                    </i>
-                </div>
-            </div>
+                            <div>
+                                <i class="fa-solid fa-box-open text-2xl text-principal"></i>
 
-            <!-- CATEGORIAS -->
+                                <p class="text-xs sm:text-sm font-bold mt-2">
+                                    Gran variedad
+                                </p>
+                            </div>
 
-            <p class="mb-3">Filtrar por Categoría:</p>
+                            <div>
+                                <i class="fa-solid fa-tags text-2xl text-principal"></i>
 
-            <div class="flex flex-wrap gap-2 mb-8">
-                <a href="#todos">
-                    <button class="px-5 py-2 rounded-full bg-[#83d3d0] text-[#29484c] text-xs font-bold">
-                        TODOS
-                    </button>
-                </a>
-                <a href="#escolar">
-                    <button class="px-5 py-2 rounded-full bg-[#6e8589] text-xs hover:bg-[#83d3d0] transition">
-                        ESCOLAR
-                    </button>
-                </a>
+                                <p class="text-xs sm:text-sm font-bold mt-2">
+                                    Buenos precios
+                                </p>
+                            </div>
 
-                <a href="#aseo">
-                    <button class="px-5 py-2 rounded-full bg-[#6e8589] text-xs hover:bg-[#83d3d0] transition">
-                        ASEO
-                    </button>
-                </a>
-                <a href="#desechables">
-                    <button class="px-5 py-2 rounded-full bg-[#6e8589] text-xs hover:bg-[#83d3d0] transition">
-                        DESECHABLES
-                    </button>
-                </a>
-            </div>
+                            <div>
+                                <i class="fa-solid fa-heart text-2xl text-principal"></i>
 
-            <section id="todos" class=" bg-[#607d83] ">
-                <div class=" mx-auto px-5">
-                    
-                    <!-- PRODUCTOS -->
-                    <div class="text-center mb-10">
+                                <p class="text-xs sm:text-sm font-bold mt-2">
+                                    Atención cercana
+                                </p>
+                            </div>
 
-                        <h2 class="text-4xl font-bold mt-2">Nuestros Productos</h2>
+                        </div>
+
                     </div>
 
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        <!-- PRODUCTO 1 -->
+                    <!-- IMAGEN PRINCIPAL -->
 
-                        <article class="bg-[#56847f] rounded-xl p-6 text-center hover:scale-105 transition">
-                            <div class="h-32 flex items-center justify-center">
-                                <img src="./img/cuaderno.png" alt="Cuaderno Escolar" class="h-28 object-contain" />
+                    <div class="flex justify-center items-center">
+
+                        <div class="relative w-full max-w-xl">
+
+                            <div class="absolute inset-5 bg-principal/10
+                                        rounded-full blur-3xl"></div>
+
+                            <div class="relative bg-white/70 backdrop-blur-sm
+                                        rounded-[2rem] p-5 sm:p-10 shadow-xl">
+
+                                <img src="./img/logo.png"
+                                     alt="Logotipo de Multiventas Rafa"
+                                     class="w-full max-h-[420px] object-contain mx-auto"
+                                     onerror="this.style.display='none';
+                                     this.nextElementSibling.style.display='flex';">
+
+                                <div class="hidden min-h-[280px] items-center justify-center
+                                            flex-col text-center">
+
+                                    <i class="fa-solid fa-store text-7xl text-principal"></i>
+
+                                    <p class="text-2xl font-black mt-5 text-oscuro">
+                                        Multiventas Rafa
+                                    </p>
+
+                                    <p class="text-gray-500 mt-2">
+                                        Todo lo que necesitas en un solo lugar.
+                                    </p>
+
+                                </div>
+
                             </div>
 
-                            <h3 class="font-bold mt-3">cuaderno escolar </h3>
+                            
 
-                            <p class="text-[#8de1db]">$ 1.000 COP</p>
+                        </div>
 
-                            <span class="inline-block mt-2 bg-white/10 px-3 py-1 rounded-full text-[9px]">
-                                ESCOLAR
-                            </span>
-                        </article>
-
-                        <!-- PRODUCTO 2 -->
-
-                        <article class="bg-[#56847f] rounded-xl p-6 text-center hover:scale-105 transition">
-                            <div class="h-32 bg-white rounded flex items-center justify-center">
-                                <img src="./img/plato.png" alt="Plato Desechable" class="h-28 object-contain" />
-                            </div>
-
-                            <h3 class="font-bold mt-3">Plato Desechable</h3>
-
-                            <p class="text-[#8de1db]">$ 10.000 COP</p>
-
-                            <span class="inline-block mt-2 bg-white/10 px-3 py-1 rounded-full text-[9px]">
-                                DESECHABLES
-                            </span>
-                        </article>
-
-                        <!-- PRODUCTO 3 -->
-
-                        <article class="bg-[#56847f] rounded-xl p-6 text-center hover:scale-105 transition">
-                            <div class="h-32 bg-white rounded flex items-center justify-center">
-                                <img src="./img/limpido.png" alt="Límpido" class="h-28 object-contain" />
-                            </div>
-
-                            <h3 class="font-bold mt-3">Límpido Desinfectante</h3>
-
-                            <p class="text-[#8de1db]">$ 1.900 COP</p>
-
-                            <span class="inline-block mt-2 bg-white/10 px-3 py-1 rounded-full text-[9px]">
-                                ASEO
-                            </span>
-                        </article>
-
-                        <!-- PRODUCTO 4 -->
-
-                        <article class="bg-[#56847f] rounded-xl p-6 text-center hover:scale-105 transition">
-                            <div class="h-32 flex items-center justify-center">
-                                <img src="./img/colores.png" alt="Colores" class="h-28 object-contain" />
-                            </div>
-
-                            <h3 class="font-bold mt-3">Cuaderno Cuadriculado</h3>
-
-                            <p class="text-[#8de1db]">$ 1.000 COP</p>
-
-                            <span class="inline-block mt-2 bg-white/10 px-3 py-1 rounded-full text-[9px]">
-                                ESCOLAR
-                            </span>
-                        </article>
-
-                        <!-- PRODUCTO 5 -->
-
-                        <article class="bg-[#56847f] rounded-xl p-6 text-center hover:scale-105 transition">
-                            <div class="h-32 bg-white rounded flex items-center justify-center">
-                                <img src="./img/vasos.png" alt="Vasos" class="h-28 object-contain" />
-                            </div>
-
-                            <h3 class="font-bold mt-3">Vasos de Plástico</h3>
-
-                            <p class="text-[#8de1db]">$ 1.000 COP</p>
-
-                            <span class="inline-block mt-2 bg-white/10 px-3 py-1 rounded-full text-[9px]">
-                                DESECHABLES
-                            </span>
-                        </article>
-
-                        <!-- PRODUCTO 6 -->
-
-                        <article class="bg-[#56847f] rounded-xl p-6 text-center hover:scale-105 transition">
-                            <div class="h-32 bg-white rounded flex items-center justify-center">
-                                <img src="./img/cepillo.png" alt="Cepillo" class="h-28 object-contain" />
-                            </div>
-
-                            <h3 class="font-bold mt-3">Cepillo </h3>
-
-                            <p class="text-[#8de1db]">$ 12.000 COP</p>
-
-                            <span class="inline-block mt-2 bg-white/10 px-3 py-1 rounded-full text-[9px]">
-                                ASEO
-                            </span>
-                        </article>
                     </div>
+
                 </div>
-            </section>
+
+            </div>
+
         </section>
 
 
+        <!-- ================= CATEGORÍAS ================= -->
 
-<!-- FOOTER -->
-<footer class="bg-[#2f8876] text-white py-10 px-6">
+        <section id="categorias" class="py-20 bg-white">
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="max-w-7xl mx-auto px-5 lg:px-8">
 
-        <!-- ENCUÉNTRANOS -->
-        <div>
-            <h3 class="font-bold text-lg mb-4">
-                Encuéntranos
-            </h3>
+                <div class="text-center max-w-2xl mx-auto mb-12">
 
-            <p class="text-sm mb-3">
-                <i class="fa-brands fa-facebook-f mr-2"></i>
-                MultiVentasRafa
-            </p>
+                    <p class="text-principal font-bold uppercase tracking-widest text-sm">
+                        Encuentra lo que buscas
+                    </p>
 
-            <p class="text-sm">
-                <i class="fa-brands fa-instagram mr-2"></i>
-                @multiventasrafa
-            </p>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-3 text-oscuro">
+                        Explora nuestras categorías
+                    </h2>
+
+                    <p class="text-gray-500 mt-4">
+                        Diferentes productos para tus necesidades diarias.
+                    </p>
+
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- ESCOLAR -->
+
+                    <button type="button"
+                            data-category="escolar"
+                            class="category-card group text-left rounded-3xl
+                                   bg-[#edf7f3] p-7 hover:shadow-lg transition">
+
+                        <div class="w-16 h-16 rounded-2xl bg-white
+                                    flex items-center justify-center shadow-sm">
+
+                            <i class="fa-solid fa-book-open text-3xl text-principal"></i>
+
+                        </div>
+
+                        <h3 class="text-xl font-black mt-5 text-oscuro">
+                            Útiles escolares
+                        </h3>
+
+                        <p class="text-gray-600 mt-2">
+                            Cuadernos, colores y materiales para estudiar.
+                        </p>
+
+                        <span class="inline-flex items-center gap-2
+                                     text-principal font-bold mt-5">
+
+                            Explorar
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+
+                        </span>
+
+                    </button>
+
+
+                    <!-- ASEO -->
+
+                    <button type="button"
+                            data-category="aseo"
+                            class="category-card group text-left rounded-3xl
+                                   bg-[#eef5fa] p-7 hover:shadow-lg transition">
+
+                        <div class="w-16 h-16 rounded-2xl bg-white
+                                    flex items-center justify-center shadow-sm">
+
+                            <i class="fa-solid fa-pump-soap text-3xl text-blue-700"></i>
+
+                        </div>
+
+                        <h3 class="text-xl font-black mt-5 text-oscuro">
+                            Productos de aseo
+                        </h3>
+
+                        <p class="text-gray-600 mt-2">
+                            Artículos para mantener tus espacios limpios.
+                        </p>
+
+                        <span class="inline-flex items-center gap-2
+                                     text-principal font-bold mt-5">
+
+                            Explorar
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+
+                        </span>
+
+                    </button>
+
+
+                    <!-- DESECHABLES -->
+
+                    <button type="button"
+                            data-category="desechables"
+                            class="category-card group text-left rounded-3xl
+                                   bg-[#fff5e8] p-7 hover:shadow-lg transition">
+
+                        <div class="w-16 h-16 rounded-2xl bg-white
+                                    flex items-center justify-center shadow-sm">
+
+                            <i class="fa-solid fa-utensils text-3xl text-orange-600"></i>
+
+                        </div>
+
+                        <h3 class="text-xl font-black mt-5 text-oscuro">
+                            Desechables
+                        </h3>
+
+                        <p class="text-gray-600 mt-2">
+                            Platos, vasos y artículos prácticos para compartir.
+                        </p>
+
+                        <span class="inline-flex items-center gap-2
+                                     text-principal font-bold mt-5">
+
+                            Explorar
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TIENDA ================= -->
+
+        <section id="tienda" class="py-20 bg-fondo">
+
+            <div class="max-w-7xl mx-auto px-5 lg:px-8">
+
+                <!-- TÍTULO -->
+
+                <div class="flex flex-col md:flex-row md:items-end
+                            md:justify-between gap-5 mb-10">
+
+                    <div>
+
+                        <p class="text-principal font-bold uppercase tracking-widest text-sm">
+                            Nuestros productos
+                        </p>
+
+                        <h2 class="text-3xl sm:text-4xl font-black mt-3 text-oscuro">
+                            Descubre nuestra tienda
+                        </h2>
+
+                        <p class="text-gray-500 mt-3">
+                            Encuentra lo que necesitas de forma fácil y rápida.
+                        </p>
+
+                    </div>
+
+                    <div class="text-sm text-gray-500">
+                        Productos disponibles en el catálogo
+                    </div>
+
+                </div>
+
+
+                <!-- BUSCADOR -->
+
+                <div class="bg-white p-4 rounded-2xl shadow-sm mb-6">
+
+                    <div class="grid md:grid-cols-[1fr_auto] gap-4">
+
+                        <div class="relative">
+
+                            <label for="searchInput" class="sr-only">
+                                Buscar productos
+                            </label>
+
+                            <i class="fa-solid fa-magnifying-glass
+                                      absolute left-5 top-1/2 -translate-y-1/2
+                                      text-gray-400"></i>
+
+                            <input id="searchInput"
+                                   type="search"
+                                   placeholder="¿Qué producto estás buscando?"
+                                   class="w-full bg-fondo rounded-xl py-4 pl-12 pr-4
+                                          outline-none border border-transparent
+                                          focus:border-principal transition">
+
+                        </div>
+
+                        <button id="searchButton"
+                                type="button"
+                                class="bg-principal text-white rounded-xl px-7 py-4
+                                       font-bold hover:bg-oscuro transition">
+
+                            Buscar productos
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FILTROS -->
+
+                <div class="flex flex-wrap items-center gap-3 mb-8">
+
+                    <span class="font-bold text-sm mr-2">
+                        Categorías:
+                    </span>
+
+                    <button type="button"
+                            data-filter="todos"
+                            class="category-button active px-5 py-2.5
+                                   rounded-full bg-white border border-gray-200
+                                   text-sm font-bold transition">
+
+                        Todos
+                    </button>
+
+                    <button type="button"
+                            data-filter="escolar"
+                            class="category-button px-5 py-2.5 rounded-full
+                                   bg-white border border-gray-200
+                                   text-sm font-bold transition">
+
+                        Escolar
+                    </button>
+
+                    <button type="button"
+                            data-filter="aseo"
+                            class="category-button px-5 py-2.5 rounded-full
+                                   bg-white border border-gray-200
+                                   text-sm font-bold transition">
+
+                        Aseo
+                    </button>
+
+                    <button type="button"
+                            data-filter="desechables"
+                            class="category-button px-5 py-2.5 rounded-full
+                                   bg-white border border-gray-200
+                                   text-sm font-bold transition">
+
+                        Desechables
+                    </button>
+
+                </div>
+
+
+                <!-- CONTADOR DE RESULTADOS -->
+
+                <p id="resultsCount"
+                   class="text-sm text-gray-500 mb-5"
+                   aria-live="polite">
+
+                    Mostrando 6 productos
+
+                </p>
+
+
+                <!-- PRODUCTOS -->
+
+                <div id="productsGrid"
+                     class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+                    <!-- PRODUCTO 1 -->
+
+                    <article data-name="cuaderno escolar"
+                             data-category="escolar"
+                             data-price="1000"
+                             class="product-card bg-white rounded-3xl p-5 shadow-sm">
+
+                        <div class="relative h-56 rounded-2xl bg-fondo
+                                    flex items-center justify-center overflow-hidden">
+
+                            <span class="absolute top-3 left-3 bg-white
+                                         text-principal text-xs font-bold
+                                         rounded-full px-3 py-1.5">
+
+                                ESCOLAR
+
+                            </span>
+
+                            <img src="./img/cuaderno.png"
+                                 alt="Cuaderno escolar"
+                                 loading="lazy"
+                                 class="product-image h-44 w-full object-contain"
+                                 onerror="this.style.display='none';
+                                 this.nextElementSibling.style.display='flex';">
+
+                            <div class="hidden flex-col items-center justify-center text-principal">
+
+                                <i class="fa-solid fa-book-open text-5xl"></i>
+                                <span class="mt-2 text-sm">Cuaderno escolar</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="pt-5">
+
+                            <p class="text-xs uppercase tracking-widest
+                                      text-gray-400 font-bold">
+                                Papelería
+                            </p>
+
+                            <h3 class="text-xl font-black mt-2 text-oscuro">
+                                Cuaderno escolar
+                            </h3>
+
+                            <div class="flex items-center justify-between gap-3 mt-5">
+
+                                <p class="text-2xl font-black text-principal">
+                                    $1.000
+                                    <span class="text-xs font-medium text-gray-400">COP</span>
+                                </p>
+
+                                <button type="button"
+                                        class="add-to-cart w-11 h-11 rounded-xl
+                                               bg-principal text-white
+                                               hover:bg-oscuro transition"
+                                        aria-label="Agregar cuaderno escolar al carrito">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUCTO 2 -->
+
+                    <article data-name="plato desechable"
+                             data-category="desechables"
+                             data-price="10000"
+                             class="product-card bg-white rounded-3xl p-5 shadow-sm">
+
+                        <div class="relative h-56 rounded-2xl bg-fondo
+                                    flex items-center justify-center overflow-hidden">
+
+                            <span class="absolute top-3 left-3 bg-white
+                                         text-principal text-xs font-bold
+                                         rounded-full px-3 py-1.5">
+
+                                DESECHABLES
+
+                            </span>
+
+                            <img src="./img/plato.png"
+                                 alt="Plato desechable"
+                                 loading="lazy"
+                                 class="product-image h-44 w-full object-contain"
+                                 onerror="this.style.display='none';
+                                 this.nextElementSibling.style.display='flex';">
+
+                            <div class="hidden flex-col items-center justify-center text-principal">
+
+                                <i class="fa-solid fa-utensils text-5xl"></i>
+                                <span class="mt-2 text-sm">Plato desechable</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="pt-5">
+
+                            <p class="text-xs uppercase tracking-widest
+                                      text-gray-400 font-bold">
+                                Desechables
+                            </p>
+
+                            <h3 class="text-xl font-black mt-2 text-oscuro">
+                                Plato desechable
+                            </h3>
+
+                            <div class="flex items-center justify-between gap-3 mt-5">
+
+                                <p class="text-2xl font-black text-principal">
+                                    $10.000
+                                    <span class="text-xs font-medium text-gray-400">COP</span>
+                                </p>
+
+                                <button type="button"
+                                        class="add-to-cart w-11 h-11 rounded-xl
+                                               bg-principal text-white
+                                               hover:bg-oscuro transition"
+                                        aria-label="Agregar plato desechable al carrito">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUCTO 3 -->
+
+                    <article data-name="limpido desinfectante"
+                             data-category="aseo"
+                             data-price="1900"
+                             class="product-card bg-white rounded-3xl p-5 shadow-sm">
+
+                        <div class="relative h-56 rounded-2xl bg-fondo
+                                    flex items-center justify-center overflow-hidden">
+
+                            <span class="absolute top-3 left-3 bg-white
+                                         text-principal text-xs font-bold
+                                         rounded-full px-3 py-1.5">
+
+                                ASEO
+
+                            </span>
+
+                            <img src="./img/limpido.png"
+                                 alt="Límpido desinfectante"
+                                 loading="lazy"
+                                 class="product-image h-44 w-full object-contain"
+                                 onerror="this.style.display='none';
+                                 this.nextElementSibling.style.display='flex';">
+
+                            <div class="hidden flex-col items-center justify-center text-principal">
+
+                                <i class="fa-solid fa-pump-soap text-5xl"></i>
+                                <span class="mt-2 text-sm">Límpido desinfectante</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="pt-5">
+
+                            <p class="text-xs uppercase tracking-widest
+                                      text-gray-400 font-bold">
+                                Limpieza
+                            </p>
+
+                            <h3 class="text-xl font-black mt-2 text-oscuro">
+                                Límpido desinfectante
+                            </h3>
+
+                            <div class="flex items-center justify-between gap-3 mt-5">
+
+                                <p class="text-2xl font-black text-principal">
+                                    $1.900
+                                    <span class="text-xs font-medium text-gray-400">COP</span>
+                                </p>
+
+                                <button type="button"
+                                        class="add-to-cart w-11 h-11 rounded-xl
+                                               bg-principal text-white
+                                               hover:bg-oscuro transition"
+                                        aria-label="Agregar límpido desinfectante al carrito">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUCTO 4 -->
+
+                    <article data-name="colores escolares"
+                             data-category="escolar"
+                             data-price="1000"
+                             class="product-card bg-white rounded-3xl p-5 shadow-sm">
+
+                        <div class="relative h-56 rounded-2xl bg-fondo
+                                    flex items-center justify-center overflow-hidden">
+
+                            <span class="absolute top-3 left-3 bg-white
+                                         text-principal text-xs font-bold
+                                         rounded-full px-3 py-1.5">
+
+                                ESCOLAR
+
+                            </span>
+
+                            <img src="./img/colores.png"
+                                 alt="Colores escolares"
+                                 loading="lazy"
+                                 class="product-image h-44 w-full object-contain"
+                                 onerror="this.style.display='none';
+                                 this.nextElementSibling.style.display='flex';">
+
+                            <div class="hidden flex-col items-center justify-center text-principal">
+
+                                <i class="fa-solid fa-palette text-5xl"></i>
+                                <span class="mt-2 text-sm">Colores escolares</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="pt-5">
+
+                            <p class="text-xs uppercase tracking-widest
+                                      text-gray-400 font-bold">
+                                Papelería
+                            </p>
+
+                            <h3 class="text-xl font-black mt-2 text-oscuro">
+                                Colores escolares
+                            </h3>
+
+                            <div class="flex items-center justify-between gap-3 mt-5">
+
+                                <p class="text-2xl font-black text-principal">
+                                    $1.000
+                                    <span class="text-xs font-medium text-gray-400">COP</span>
+                                </p>
+
+                                <button type="button"
+                                        class="add-to-cart w-11 h-11 rounded-xl
+                                               bg-principal text-white
+                                               hover:bg-oscuro transition"
+                                        aria-label="Agregar colores escolares al carrito">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUCTO 5 -->
+
+                    <article data-name="vasos de plastico"
+                             data-category="desechables"
+                             data-price="1000"
+                             class="product-card bg-white rounded-3xl p-5 shadow-sm">
+
+                        <div class="relative h-56 rounded-2xl bg-fondo
+                                    flex items-center justify-center overflow-hidden">
+
+                            <span class="absolute top-3 left-3 bg-white
+                                         text-principal text-xs font-bold
+                                         rounded-full px-3 py-1.5">
+
+                                DESECHABLES
+
+                            </span>
+
+                            <img src="./img/vasos.png"
+                                 alt="Vasos de plástico"
+                                 loading="lazy"
+                                 class="product-image h-44 w-full object-contain"
+                                 onerror="this.style.display='none';
+                                 this.nextElementSibling.style.display='flex';">
+
+                            <div class="hidden flex-col items-center justify-center text-principal">
+
+                                <i class="fa-solid fa-glass-water text-5xl"></i>
+                                <span class="mt-2 text-sm">Vasos de plástico</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="pt-5">
+
+                            <p class="text-xs uppercase tracking-widest
+                                      text-gray-400 font-bold">
+                                Desechables
+                            </p>
+
+                            <h3 class="text-xl font-black mt-2 text-oscuro">
+                                Vasos de plástico
+                            </h3>
+
+                            <div class="flex items-center justify-between gap-3 mt-5">
+
+                                <p class="text-2xl font-black text-principal">
+                                    $1.000
+                                    <span class="text-xs font-medium text-gray-400">COP</span>
+                                </p>
+
+                                <button type="button"
+                                        class="add-to-cart w-11 h-11 rounded-xl
+                                               bg-principal text-white
+                                               hover:bg-oscuro transition"
+                                        aria-label="Agregar vasos de plástico al carrito">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUCTO 6 -->
+
+                    <article data-name="cepillo de aseo"
+                             data-category="aseo"
+                             data-price="12000"
+                             class="product-card bg-white rounded-3xl p-5 shadow-sm">
+
+                        <div class="relative h-56 rounded-2xl bg-fondo
+                                    flex items-center justify-center overflow-hidden">
+
+                            <span class="absolute top-3 left-3 bg-white
+                                         text-principal text-xs font-bold
+                                         rounded-full px-3 py-1.5">
+
+                                ASEO
+
+                            </span>
+
+                            <img src="./img/cepillo.png"
+                                 alt="Cepillo de aseo"
+                                 loading="lazy"
+                                 class="product-image h-44 w-full object-contain"
+                                 onerror="this.style.display='none';
+                                 this.nextElementSibling.style.display='flex';">
+
+                            <div class="hidden flex-col items-center justify-center text-principal">
+
+                                <i class="fa-solid fa-broom text-5xl"></i>
+                                <span class="mt-2 text-sm">Cepillo de aseo</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="pt-5">
+
+                            <p class="text-xs uppercase tracking-widest
+                                      text-gray-400 font-bold">
+                                Limpieza
+                            </p>
+
+                            <h3 class="text-xl font-black mt-2 text-oscuro">
+                                Cepillo de aseo
+                            </h3>
+
+                            <div class="flex items-center justify-between gap-3 mt-5">
+
+                                <p class="text-2xl font-black text-principal">
+                                    $12.000
+                                    <span class="text-xs font-medium text-gray-400">COP</span>
+                                </p>
+
+                                <button type="button"
+                                        class="add-to-cart w-11 h-11 rounded-xl
+                                               bg-principal text-white
+                                               hover:bg-oscuro transition"
+                                        aria-label="Agregar cepillo de aseo al carrito">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- MENSAJE SIN RESULTADOS -->
+
+                <div id="noResults"
+                     class="hidden text-center py-16">
+
+                    <i class="fa-solid fa-magnifying-glass
+                              text-5xl text-gray-300"></i>
+
+                    <h3 class="text-xl font-black mt-5">
+                        No encontramos productos
+                    </h3>
+
+                    <p class="text-gray-500 mt-2">
+                        Intenta buscar con otro nombre o categoría.
+                    </p>
+
+                    <button id="clearSearch"
+                            type="button"
+                            class="mt-5 bg-principal text-white
+                                   rounded-full px-6 py-3 font-bold">
+
+                        Ver todos los productos
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+       
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contacto" class=" bg-gradient-to-br
+                from-[#3c5359]
+                via-[#668187]
+                to-[#a5babd] text-white pt-16 pb-8">
+
+        <div class="max-w-7xl mx-auto px-5 lg:px-8">
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
+
+              
+
+
+                <!-- ENLACES -->
+
+                <div>
+
+                    <h3 class="font-black text-lg mb-5">
+                        Navegación
+                    </h3>
+
+                    <ul class="space-y-3 text-sm text-white/70">
+
+                        <li>
+                            <a href="#inicio" class="hover:text-secundario transition">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#categorias" class="hover:text-secundario transition">
+                                Categorías
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#tienda" class="hover:text-secundario transition">
+                                Nuestra tienda
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./login/index.html"
+                               class="hover:text-secundario transition">
+                                Iniciar sesión
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./register/index.html"
+                               class="hover:text-secundario transition">
+                                Crear cuenta
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- CONTACTO -->
+
+                <div>
+
+                    <h3 class="font-black text-lg mb-5">
+                        Contáctanos
+                    </h3>
+
+                    <ul class="space-y-4 text-sm text-white/70">
+
+                        <li class="flex items-start gap-3">
+
+                            <i class="fa-solid fa-phone text-secundario mt-1"></i>
+
+                            <a href="https://web.whatsapp.com/">+57 310 6735170</a>
+
+                        </li>
+
+                        <li class="flex items-start gap-3">
+
+                            <i class="fa-solid fa-location-dot text-secundario mt-1"></i>
+
+                            <span>Suaza, Huila, Colombia</span>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- REDES SOCIALES -->
+
+                <div>
+
+                    <h3 class="font-black text-lg mb-5">
+                        Síguenos
+                    </h3>
+
+                    <p class="text-sm text-white/60 mb-5">
+                        Conoce nuestras novedades y productos.
+                    </p>
+
+                    <div class="flex gap-3">
+
+                        <a href="https://www.facebook.com/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Facebook"
+                           class="w-11 h-11 rounded-xl bg-white/10
+                                  flex items-center justify-center
+                                  hover:bg-principal transition">
+
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+
+                        </a>
+
+                        <a href="https://www.instagram.com/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Instagram"
+                           class="w-11 h-11 rounded-xl bg-white/10
+                                  flex items-center justify-center
+                                  hover:bg-principal transition">
+
+                            <i class="fa-brands fa-instagram text-lg"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DERECHOS -->
+
+            <div class="border-t border-white/10 pt-7
+                        flex flex-col sm:flex-row gap-3
+                        justify-between items-center">
+
+                <p class="text-xs text-white/50 text-center">
+
+                    © <span id="currentYear">2026</span>
+                    Multiventas Rafa. Todos los derechos reservados.
+
+                </p>
+               <p class="text-xs text-white/50 text-center">
+                  desarrollado por: <a href="https://github.com/yohanaquesada202012-cell" class="text-oscuro hover:underline">yohana quesada</a> y <a href="https://github.com/sebastianayala-cmd" class="text-oscuro hover:underline">sebastian ayala</a>
+                    
+                </p>
+
+                <a href="#inicio"
+                   class="text-xs text-white/60 hover:text-secundario transition">
+
+                    Volver arriba ↑
+
+                </a>
+
+            </div>
+
         </div>
 
-
-        <!-- CONTACTO -->
-        <div>
-            <h3 class="font-bold text-lg mb-4">
-                Contacto
-            </h3>
-
-            <p class="text-sm mb-3">
-                <i class="fa-solid fa-phone mr-2"></i>
-                +57 312 356 7890
-            </p>
-
-            <p class="text-sm">
-                <i class="fa-solid fa-location-dot mr-2"></i>
-                Suaza, Huila
-            </p>
-        </div>
+    </footer>
 
 
-        <!-- INFORMACIÓN -->
-        <div>
-            <h3 class="font-bold text-lg mb-4">
-                Información
-            </h3>
+    <!-- ================= CARRITO ================= -->
 
-            <p class="text-sm mb-2">
-                Productos escolares
-            </p>
+    <div id="cartOverlay"
+         class="hidden fixed inset-0 z-[60] bg-black/40"
+         aria-hidden="true">
 
-            <p class="text-sm mb-2">
-                Cacharrería
-            </p>
+        <aside id="cartPanel"
+               role="dialog"
+               aria-modal="true"
+               aria-labelledby="cartTitle"
+               class="absolute right-0 top-0 h-full w-full max-w-md
+                      bg-white text-oscuro shadow-2xl
+                      flex flex-col translate-x-full transition-transform">
 
-            <p class="text-sm">
-                Productos plásticos
-            </p>
-        </div>
+            <div class="p-6 border-b border-gray-100
+                        flex items-center justify-between">
+
+                <div>
+
+                    <h2 id="cartTitle" class="text-2xl font-black">
+                        Tu carrito
+                    </h2>
+
+                    <p class="text-sm text-gray-500 mt-1">
+                        Revisa los productos seleccionados.
+                    </p>
+
+                </div>
+
+                <button id="closeCart"
+                        type="button"
+                        aria-label="Cerrar carrito"
+                        class="w-10 h-10 rounded-full bg-fondo
+                               hover:bg-gray-200 transition">
+
+                    <i class="fa-solid fa-xmark text-lg"></i>
+
+                </button>
+
+            </div>
+
+
+            <div id="cartItems"
+                 class="flex-1 overflow-y-auto p-6 space-y-4">
+
+                <p class="text-gray-500 text-center py-10">
+                    Tu carrito está vacío.
+                </p>
+
+            </div>
+
+
+            <div class="p-6 border-t border-gray-100">
+
+                <div class="flex items-center justify-between mb-5">
+
+                    <span class="font-bold text-gray-500">
+                        Total estimado
+                    </span>
+
+                    <span id="cartTotal" class="text-2xl font-black text-principal">
+                        $0 COP
+                    </span>
+
+                </div>
+
+                <button id="checkoutButton"
+                        type="button"
+                        class="w-full rounded-xl bg-principal text-white
+                               py-4 font-bold hover:bg-oscuro transition">
+
+                    <i class="fa-brands fa-whatsapp mr-2"></i>
+                    Continuar pedido por WhatsApp
+
+                </button>
+
+                <p class="text-xs text-gray-400 text-center mt-3">
+                    El pedido se revisará antes de confirmar la compra.
+                </p>
+
+            </div>
+
+        </aside>
 
     </div>
 
-    <div class="max-w-6xl mx-auto border-t border-white/30 mt-8 pt-5">
 
-        <p class="text-center text-sm text-white/80">
-            © 2026 MultiVentas Rafa. Todos los derechos reservados.
-        </p>
+    <!-- NOTIFICACIONES -->
+
+    <div id="toast"
+        role="status"
+        aria-live="polite"
+        class="hidden fixed bottom-5 left-1/2 -translate-x-1/2
+                z-[70] bg-oscuro text-white rounded-xl px-6 py-4
+                shadow-xl text-sm font-semibold toast">
 
     </div>
-
-</footer>
-
 </body>
-
+ <script src="./js/script.js"></script>
 </html>
